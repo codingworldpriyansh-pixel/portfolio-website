@@ -52,17 +52,16 @@ color:white;
 padding:20px;
 }
 .card{
-background:white;
-padding:20px;
-margin:20px 0;
-border-radius:10px;
-box-shadow:0 0 10px rgba(0,0,0,0.1);
-
 opacity:0;
-transform:translateY(30px);
-animation:fadeUp 1s forwards;
+transform:translateY(40px);
+transition:0.6s;
 }
-
+.card a{
+display:inline-block;
+margin-top:10px;
+color:#667eea;
+font-weight:bold;
+}
 @keyframes fadeUp{
 to{
 opacity:1;
@@ -85,6 +84,26 @@ padding:20px;
 }
 
 }
+.hero{
+height:80vh;
+display:flex;
+flex-direction:column;
+justify-content:center;
+align-items:center;
+text-align:center;
+background:linear-gradient(135deg,#667eea,#764ba2);
+color:white;
+}
+
+.btn{
+margin-top:20px;
+padding:12px 25px;
+background:white;
+color:black;
+text-decoration:none;
+border-radius:30px;
+font-weight:bold;
+}
 </style>
 </head>
 
@@ -96,12 +115,22 @@ padding:20px;
 </header>
 
 <nav>
+    
 <a href="#about">About</a>
 <a href="#projects">Projects</a>
 <a href="#skills">Skills</a>
 <a href="#contact">Contact</a>
 </nav>
+<section class="hero">
 
+<h1>Hi, I'm Priyansh</h1>
+
+<p>Cybersecurity Enthusiast | Web Developer | Problem Solver</p>
+<a href="resume.pdf" download class="btn">Download Resume</a>
+
+<a href="#projects" class="btn">View My Work</a>
+
+</section>
 <section id="about">
 <h2>About Me</h2>
 
@@ -117,9 +146,13 @@ Hello! I am a developer passionate about building websites and solving cybersecu
 <h2>Projects</h2>
 
 <div class="card">
-<h3>Calculator App</h3>
-<p>Simple calculator using JavaScript.</p>
-<a href="https://github.com/username/calculator" target="_blank">View Code</a>
+
+<h3>Portfolio Website</h3>
+
+<p>Personal portfolio built using HTML CSS.</p>
+
+<a href="https://github.com/yourusername/portfolio" target="_blank">GitHub</a>
+
 </div>
 
 <div class="card">
@@ -159,6 +192,26 @@ Hello! I am a developer passionate about building websites and solving cybersecu
 <footer>
 <p>© 2026 John Doe</p>
 </footer>
+<script>
 
+const cards = document.querySelectorAll(".card");
+
+window.addEventListener("scroll", () => {
+
+cards.forEach(card => {
+
+const position = card.getBoundingClientRect().top;
+const screen = window.innerHeight;
+
+if(position < screen - 100){
+card.style.opacity = 1;
+card.style.transform = "translateY(0)";
+}
+
+});
+
+});
+
+</script>
 </body>
 </html>
